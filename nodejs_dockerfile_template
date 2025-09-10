@@ -13,6 +13,9 @@ RUN npm install
 # 5. Copy the rest of your project files
 COPY . .  
 
-# 6. Define default command to run your app
+# 6. Expose port the app will run on
+EXPOSE 3000   # replace 3000 with your app’s actual port
+
+# 7. Define default command to run your app
 # Replace "app.js" with your main file
 CMD ["node", "app.js"]
