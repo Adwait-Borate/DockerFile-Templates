@@ -16,5 +16,8 @@ COPY src ./src
 # 6. Build the project
 RUN mvn clean package
 
-# 7. Run the built jar (adjust target jar name if different)
+# 7. Expose the port your app will run on
+EXPOSE 8080   # replace with your app’s actual port
+
+# 8. Run the built jar (adjust target jar name if different)
 CMD ["java", "-jar", "target/app.jar"]
