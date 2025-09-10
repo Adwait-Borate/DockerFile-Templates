@@ -1,0 +1,15 @@
+# 1. Pick a base image (change this depending on your language/project)
+FROM python:3.10-slim  
+
+# 2. Set working directory inside container
+WORKDIR /app  
+
+# 3. Copy project files into container
+COPY . .  
+
+# 4. (Optional) Install dependencies if you have requirements.txt
+RUN pip install -r requirements.txt  
+
+# 5. Define default command to run your app
+# Replace "app.py" with your main file
+CMD ["python", "app.py"]
