@@ -1,20 +1,20 @@
-// 1. Pick a base image with Maven and JDK
+# 1. Pick a base image with Maven and JDK
 FROM maven:3.9.3-eclipse-temurin-21
 
-// 2. Set working directory inside container
+# 2. Set working directory inside container
 WORKDIR /app
 
-// 3. Copy pom.xml first (for dependency caching)
+# 3. Copy pom.xml first (for dependency caching)
 COPY pom.xml .
 
-// 4. Download dependencies
+# 4. Download dependencies
 RUN mvn dependency:go-offline
 
-// 5. Copy the rest of the project files
+# 5. Copy the rest of the project files
 COPY src ./src
 
-// 6. Build the project
+# 6. Build the project
 RUN mvn clean package
 
-// 7. Run the built jar (adjust target jar name if different)
+# 7. Run the built jar (adjust target jar name if different)
 CMD ["java", "-jar", "target/app.jar"]
