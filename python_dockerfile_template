@@ -10,6 +10,9 @@ COPY . .
 # 4. (Optional) Install dependencies if you have requirements.txt
 RUN pip install -r requirements.txt  
 
-# 5. Define default command to run your app
+# 5. Expose the port your app will run on
+EXPOSE 5000   # replace 5000 with your app’s actual port
+
+# 6. Define default command to run your app
 # Replace "app.py" with your main file
 CMD ["python", "app.py"]
