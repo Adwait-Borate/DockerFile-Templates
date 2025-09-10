@@ -1,0 +1,18 @@
+# 1. Pick a base image (for Node.js apps)
+FROM node:18-slim  
+
+# 2. Set working directory inside container
+WORKDIR /app  
+
+# 3. Copy package.json and package-lock.json first (for dependency caching)
+COPY package*.json ./  
+
+# 4. Install dependencies
+RUN npm install  
+
+# 5. Copy the rest of your project files
+COPY . .  
+
+# 6. Define default command to run your app
+# Replace "app.js" with your main file
+CMD ["node", "app.js"]
